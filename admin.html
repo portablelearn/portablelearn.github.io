@@ -1,74 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Teacher Panel — Portable Learning</title>
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Portable Learning — Player</title>
+<link rel="stylesheet" href="styles.css" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header class="site-header">
-    <div class="brand">
-      <div class="logo">PL</div>
-      <div>
-        <div class="title">Teacher Panel</div>
-        <div class="subtitle">Secure area (demo) — sign in</div>
-      </div>
-    </div>
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="games.html">Games</a>
-      <a href="admin.html" class="admin-link">Teacher Panel</a>
-    </nav>
-  </header>
+<header class="site-header">
+  <div class="brand">
+    <h1>Portable Learning</h1>
+    <p class="tag">Game Player</p>
+  </div>
+  <nav class="nav">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="admin.html" class="nav-link">Admin</a>
+  </nav>
+</header>
 
-  <main class="container">
-    <section class="admin-login" id="loginSection">
-      <h2>Teacher Sign In</h2>
-      <form id="loginForm">
-        <label>Username<input id="user" required /></label>
-        <label>Password<input id="pass" type="password" required /></label>
-        <div class="login-actions">
-          <button type="submit">Sign in</button>
-        </div>
-      </form>
-      <div id="loginMsg" class="muted"></div>
-    </section>
+<main class="container player-page">
+  <div class="player-toolbar">
+    <button id="openFullscreen" class="btn">Enter Fullscreen</button>
+    <a id="openNewTab" class="btn outline" target="_blank">Open in new tab</a>
+    <div id="adminHint" class="admin-hint" hidden>Admin mode</div>
+  </div>
 
-    <section id="panelSection" class="admin-panel hidden">
-      <div class="panel-header">
-        <h2 id="welcomeTeacher"></h2>
-        <button id="logoutBtn">Log out</button>
-      </div>
+  <div id="playerArea" class="player-area">
+    <iframe id="gameFrame" src="" frameborder="0" allowfullscreen></iframe>
+  </div>
+</main>
 
-      <div class="panel-grid">
-        <div class="panel-card">
-          <h3>Appearance</h3>
-          <label>Primary color<input id="adminPrimary" type="color" /></label>
-          <label>Accent color<input id="adminAccent" type="color" /></label>
-          <button id="applyTheme">Apply Theme</button>
-        </div>
-
-        <div class="panel-card">
-          <h3>Featured Games</h3>
-          <div id="featuredList"></div>
-        </div>
-
-        <div class="panel-card">
-          <h3>Add New Game (demo)</h3>
-          <label>Title<input id="newTitle" /></label>
-          <label>Src (relative)<input id="newSrc" /></label>
-          <label>Category<input id="newCategory" /></label>
-          <button id="addGame">Add Game</button>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div>© 2025 Portable Learning</div>
-  </footer>
-
-  <script type="module" src="app.js"></script>
+<script src="game.js"></script>
 </body>
 </html>
