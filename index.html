@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portable Learning — Home</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <div class="logo">PL</div>
+      <div>
+        <div class="title">Portable Learning</div>
+        <div class="subtitle">Interactive learning — professional, portable, precise</div>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="games.html">Games</a>
+      <a href="admin.html" class="admin-link">Teacher Panel</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Learn While You Play</h1>
+      <p class="hero-blurb">Curated educational games for formal learning contexts. Teachers may customize the experience via the Teacher Panel.</p>
+      <div class="hero-controls">
+        <label class="control-inline">Theme:
+          <select id="themeSelect">
+            <option value="default">Default</option>
+            <option value="classic">Classic Navy</option>
+            <option value="muted">Muted Slate</option>
+            <option value="highcontrast">High Contrast</option>
+          </select>
+        </label>
+        <label class="control-inline">Display:
+          <select id="layoutSelect">
+            <option value="grid">Grid</option>
+            <option value="list">List</option>
+          </select>
+        </label>
+      </div>
+    </section>
+
+    <section class="library">
+      <div class="library-header">
+        <h2>Game Library</h2>
+        <div class="library-actions">
+          <input id="searchInput" placeholder="Search games or categories" />
+          <select id="categoryFilter">
+            <option value="">All categories</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="gamesContainer" class="games-grid"></div>
+    </section>
+
+    <section class="settings-panel">
+      <h3>Appearance & Behavior</h3>
+      <div class="settings-row">
+        <label>Primary color
+          <input id="primaryColor" type="color" />
+        </label>
+        <label>Accent color
+          <input id="accentColor" type="color" />
+        </label>
+        <label>IFrame height
+          <input id="iframeHeight" type="range" min="300" max="1200" value="500" />
+        </label>
+        <button id="savePrefs">Save Preferences</button>
+        <button id="resetPrefs">Reset</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>© 2025 Portable Learning</div>
+    <div class="footer-right">Version 1.0 • Formal UI</div>
+  </footer>
+
+  <script src="app.js" type="module"></script>
+</body>
+</html>
