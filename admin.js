@@ -14,7 +14,7 @@ const logoutBtn = document.getElementById('logoutBtn');
 const exportBtn = document.getElementById('exportJson');
 
 async function loadTeachers(){
-  const res = await fetch('data/teachers.json');
+  const res = await fetch('teachers.json');
   teachers = await res.json();
 }
 function renderList(){
