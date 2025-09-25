@@ -1,87 +1,79 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Portable Learning — Home</title>
-  <link rel="stylesheet" href="/styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Portable Learning — Library</title>
+<link rel="stylesheet" href="styles.css" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header class="site-header">
-    <div class="brand">
-      <div class="logo">PL</div>
-      <div>
-        <div class="title">Portable Learning</div>
-        <div class="subtitle">Interactive learning — professional, portable, precise</div>
-      </div>
-    </div>
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="games.html">Games</a>
-      <a href="admin.html" class="admin-link">Teacher Panel</a>
-    </nav>
-  </header>
+<header class="site-header">
+  <div class="brand">
+    <h1>Portable Learning</h1>
+    <p class="tag">Focused. Formal. Fast.</p>
+  </div>
+  <nav class="nav">
+    <a href="index.html" class="nav-link active">Home</a>
+    <a href="admin.html" class="nav-link">Admin</a>
+  </nav>
+</header>
 
-  <main class="container">
-    <section class="hero">
-      <h1>Learn While You Play</h1>
-      <p class="hero-blurb">Curated educational games for formal learning contexts. Teachers may customize the experience via the Teacher Panel.</p>
-      <div class="hero-controls">
-        <label class="control-inline">Theme:
-          <select id="themeSelect">
-            <option value="default">Default</option>
-            <option value="classic">Classic Navy</option>
-            <option value="muted">Muted Slate</option>
-            <option value="highcontrast">High Contrast</option>
-          </select>
-        </label>
-        <label class="control-inline">Display:
-          <select id="layoutSelect">
-            <option value="grid">Grid</option>
-            <option value="list">List</option>
-          </select>
-        </label>
-      </div>
-    </section>
+<main class="container">
+  <section class="intro">
+    <h2>Curated Educational Games</h2>
+    <p class="intro-text">Choose a game and launch it in a secure player. Teachers and admins can manage access through the Admin panel.</p>
+  </section>
 
-    <section class="library">
-      <div class="library-header">
-        <h2>Game Library</h2>
-        <div class="library-actions">
-          <input id="searchInput" placeholder="Search games or categories" />
-          <select id="categoryFilter">
-            <option value="">All categories</option>
-          </select>
+  <section class="grid" id="gamesGrid">
+    <article class="card" data-game="game1">
+      <div class="thumb">
+        <img src="games/game1/thumb.png" alt="Game 1 thumbnail" onerror="this.style.opacity=.25">
+      </div>
+      <div class="card-body">
+        <h3>Number Navigator</h3>
+        <p>Practice arithmetic and pattern recognition.</p>
+        <div class="card-actions">
+          <a class="btn" href="game.html?game=game1" role="button">Play</a>
+          <button class="btn outline modal-open" data-game="game1">Preview</button>
         </div>
       </div>
+    </article>
 
-      <div id="gamesContainer" class="games-grid"></div>
-    </section>
-
-    <section class="settings-panel">
-      <h3>Appearance & Behavior</h3>
-      <div class="settings-row">
-        <label>Primary color
-          <input id="primaryColor" type="color" />
-        </label>
-        <label>Accent color
-          <input id="accentColor" type="color" />
-        </label>
-        <label>IFrame height
-          <input id="iframeHeight" type="range" min="300" max="1200" value="500" />
-        </label>
-        <button id="savePrefs">Save Preferences</button>
-        <button id="resetPrefs">Reset</button>
+    <article class="card" data-game="game2">
+      <div class="thumb">
+        <img src="games/game2/thumb.png" alt="Game 2 thumbnail" onerror="this.style.opacity=.25">
       </div>
-    </section>
-  </main>
+      <div class="card-body">
+        <h3>Word Weave</h3>
+        <p>Build vocabulary with structured challenges.</p>
+        <div class="card-actions">
+          <a class="btn" href="game.html?game=game2" role="button">Play</a>
+          <button class="btn outline modal-open" data-game="game2">Preview</button>
+        </div>
+      </div>
+    </article>
 
-  <footer class="site-footer">
-    <div>© 2025 Portable Learning</div>
-    <div class="footer-right">Version 1.0 • Formal UI</div>
-  </footer>
+  </section>
+</main>
 
-  <script src="app.js" type="module"></script>
+<div id="playerModal" class="modal" aria-hidden="true">
+  <div class="modal-shell">
+    <header class="modal-header">
+      <h3 id="modalTitle">Preview</h3>
+      <div class="modal-controls">
+        <button id="modalFullscreen" class="icon-btn" title="Fullscreen">⤢</button>
+        <button id="modalClose" class="icon-btn" title="Close">✕</button>
+      </div>
+    </header>
+    <div class="modal-content">
+      <div id="iframeContainer" class="iframe-container">
+        <iframe id="previewFrame" src="" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="main.js"></script>
 </body>
 </html>
