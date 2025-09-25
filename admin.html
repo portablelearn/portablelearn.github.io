@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Portable Learning — Player</title>
+<title>Portable Learning — Admin</title>
 <link rel="stylesheet" href="styles.css" />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
@@ -11,26 +11,55 @@
 <header class="site-header">
   <div class="brand">
     <h1>Portable Learning</h1>
-    <p class="tag">Game Player</p>
+    <p class="tag">Administration</p>
   </div>
   <nav class="nav">
     <a href="index.html" class="nav-link">Home</a>
-    <a href="admin.html" class="nav-link">Admin</a>
+    <a href="admin.html" class="nav-link active">Admin</a>
   </nav>
 </header>
 
-<main class="container player-page">
-  <div class="player-toolbar">
-    <button id="openFullscreen" class="btn">Enter Fullscreen</button>
-    <a id="openNewTab" class="btn outline" target="_blank">Open in new tab</a>
-    <div id="adminHint" class="admin-hint" hidden>Admin mode</div>
-  </div>
+<main class="container admin-container">
+  <section id="loginSection" class="card">
+    <h2>Admin Login</h2>
+    <form id="loginForm">
+      <label>Username
+        <input id="username" required />
+      </label>
+      <label>Password
+        <input id="password" type="password" required />
+      </label>
+      <div class="form-actions">
+        <button class="btn" type="submit">Sign in</button>
+      </div>
+    </form>
+    <p class="muted">Credentials are loaded from <code>data/teachers.json</code> for this prototype.</p>
+  </section>
 
-  <div id="playerArea" class="player-area">
-    <iframe id="gameFrame" src="" frameborder="0" allowfullscreen></iframe>
-  </div>
+  <section id="dashboard" class="card" hidden>
+    <div class="dashboard-head">
+      <h2>Teacher & Admins</h2>
+      <div>
+        <button id="logoutBtn" class="btn outline">Logout</button>
+        <button id="exportJson" class="btn">Export JSON</button>
+      </div>
+    </div>
+
+    <div id="teacherList" class="teacher-list"></div>
+
+    <form id="addTeacherForm" class="inline-form">
+      <input id="newName" placeholder="Full name" required />
+      <input id="newUser" placeholder="username" required />
+      <input id="newPass" placeholder="password" required />
+      <select id="newRole">
+        <option value="teacher">Teacher</option>
+        <option value="admin">Admin</option>
+      </select>
+      <button class="btn" type="submit">Add</button>
+    </form>
+  </section>
 </main>
 
-<script src="game.js"></script>
+<script src="admin.js"></script>
 </body>
 </html>
